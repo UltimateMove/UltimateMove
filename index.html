@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UltimateMove.eu – Cyberpunk Landing</title>
+<title>UltimateMove.eu – Landing Page</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
 
@@ -25,21 +25,20 @@ body,html{
     width:100%;height:100%;
     object-fit:cover;
     z-index:-3;
-    filter:brightness(0.45) saturate(1.3);
-    transform:translateZ(0);
+    filter:brightness(0.45) saturate(1.2);
 }
 
-/* PARALLAX OVERLAY GRID */
+/* GRID OVERLAY */
 .grid-overlay{
-    position:fixed;top:0;left:0;
+    position:fixed;
+    top:0;left:0;
     width:100%;height:100%;
     background:
       linear-gradient(90deg, rgba(255,0,255,0.08) 1px, transparent 1px),
       linear-gradient(0deg, rgba(0,255,255,0.08) 1px, transparent 1px);
     background-size:40px 40px;
     z-index:-2;
-    opacity:0.15;
-    mix-blend-mode:screen;
+    opacity:0.12;
 }
 
 /* PRELOADER */
@@ -47,8 +46,10 @@ body,html{
     position:fixed;
     top:0;left:0;width:100%;height:100%;
     background:#000;
-    display:flex;flex-direction:column;
-    align-items:center;justify-content:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
     z-index:9999;
     animation:fadeOut 0.7s ease 1.5s forwards;
 }
@@ -64,7 +65,6 @@ body,html{
     font-size:18px;
     font-weight:600;
     color:#00faff;
-    text-shadow:0 0 10px #00faff;
 }
 
 @keyframes spin{to{transform:rotate(360deg);}}
@@ -83,22 +83,10 @@ body,html{
     animation:fadeIn 1.4s ease forwards 1.6s;
 }
 
-@keyframes fadeIn{to{opacity:1;}}
-
 .title{
     font-size:40px;
     font-weight:800;
     margin-bottom:15px;
-    text-shadow:0 0 20px #00faff,0 0 40px #00faff;
-    animation:glitch 2.4s infinite steps(2) alternate;
-}
-
-/* GLITCH MICRO */
-@keyframes glitch{
-  0%{text-shadow:0 0 20px #00faff;}
-  50%{text-shadow:2px 0 8px #ff00ff;}
-  51%{text-shadow:-2px 0 8px #00faff;}
-  100%{text-shadow:0 0 20px #00faff;}
 }
 
 .subtitle{
@@ -118,12 +106,10 @@ body,html{
     font-weight:600;
     text-decoration:none;
     transition:0.25s;
-    text-shadow:0 0 10px #00faff;
 }
 .btn-main:hover{
     background:#00faff;
     color:#000;
-    box-shadow:0 0 25px #00faff;
 }
 
 /* SOCIAL LINKS */
@@ -135,12 +121,10 @@ body,html{
     color:#fff;
     font-size:20px;
     text-decoration:none;
-    text-shadow:0 0 10px #ff00ff;
-    transition:0.25s;
+    opacity:0.9;
 }
 .socials a:hover{
     color:#00faff;
-    text-shadow:0 0 15px #00faff;
 }
 
 /* SECTIONS */
@@ -150,22 +134,17 @@ section{
     transform:translateY(35px);
     transition:1s ease;
 }
-
-/* SHOW ON SCROLL */
 section.visible{
     opacity:1;
     transform:translateY(0);
 }
 
-/* TITLE */
 .section-title{
     font-size:32px;
     font-weight:700;
     margin-bottom:20px;
-    text-shadow:0 0 20px #ff00ff;
 }
 
-/* TEXT */
 .section-text{
     font-size:18px;
     max-width:900px;
@@ -173,7 +152,6 @@ section.visible{
     opacity:0.85;
 }
 
-/* CARD GRID */
 .card-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -186,18 +164,16 @@ section.visible{
     padding:25px;
     border:1px solid rgba(0,255,255,0.3);
     border-radius:12px;
-    box-shadow:0 0 15px rgba(0,255,255,0.15);
     transition:0.3s;
 }
 .card:hover{
     transform:translateY(-5px);
-    box-shadow:0 0 30px #00faff;
+    box-shadow:0 0 20px #00faff;
 }
 
 .card h3{
     font-size:22px;
     margin-bottom:10px;
-    text-shadow:0 0 10px #00faff;
 }
 .card p{
     font-size:15px;
@@ -205,20 +181,18 @@ section.visible{
     line-height:1.5;
 }
 
-/* FOOTER */
 footer{
     padding:40px;
     text-align:center;
     font-size:14px;
     opacity:0.6;
-    margin-top:60px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PRELOADER (EN ONLY) -->
+<!-- PRELOADER -->
 <div id="preloader">
   <div class="loader-circle"></div>
   <div id="loader-text">POWERING UP...</div>
@@ -235,8 +209,10 @@ footer{
 <div class="hero">
     <h1 class="title" id="t-title">UltimateMove.eu</h1>
     <p class="subtitle" id="t-subtitle">
-        Elite Coaching • Cyberpunk PC Optimizations • Custom-built Machines for High-Performance Gaming
+        Coaching: Gaming • Lifestyle • Fitness • Mental<br>
+        Optymalizacja PC • Customowe komputery / PC
     </p>
+
     <a href="https://ultimatemove.eu/en/" target="_blank" class="btn-main" id="t-button">
         ENTER MAIN SITE
     </a>
@@ -253,29 +229,24 @@ footer{
 <section id="sec-what">
     <h2 class="section-title" id="t-what-title">What We Do</h2>
     <p class="section-text" id="t-what-text">
-        UltimateMove delivers world-class coaching, system optimization, custom hardware engineering,
-        and lifestyle performance guidance. Every service is handcrafted for gamers who want real results.
+        UltimateMove offers professional coaching, PC optimization, and custom PC building.
+        Every service is tailored individually to provide real results.
     </p>
 
     <div class="card-grid">
         <div class="card">
-            <h3 id="t-card1-title">🎯 Pro Coaching</h3>
-            <p id="t-card1-text">FPS, MOBA & competitive titles – analysis, improvement plans, mastery.</p>
+            <h3 id="t-card1-title">🎯 Coaching</h3>
+            <p id="t-card1-text">Gaming • Lifestyle • Fitness • Mental — structured and result-driven.</p>
         </div>
 
         <div class="card">
-            <h3 id="t-card2-title">⚡ System Optimization</h3>
-            <p id="t-card2-text">Ultimate PC tuning: FPS boost, input latency reduction & BIOS refinement.</p>
+            <h3 id="t-card2-title">⚡ PC Optimization</h3>
+            <p id="t-card2-text">FPS boost, input latency reduction, BIOS & OS refinement.</p>
         </div>
 
         <div class="card">
             <h3 id="t-card3-title">🖥 Custom PCs</h3>
-            <p id="t-card3-text">Machines engineered from scratch for competitive gaming performance.</p>
-        </div>
-
-        <div class="card">
-            <h3 id="t-card4-title">🧠 Mental & Lifestyle</h3>
-            <p id="t-card4-text">Focus, recovery, routines – everything that builds a real competitor.</p>
+            <p id="t-card3-text">High-performance PCs built specifically for your needs.</p>
         </div>
     </div>
 </section>
@@ -284,56 +255,56 @@ footer{
 <section id="sec-why">
     <h2 class="section-title" id="t-why-title">Why UltimateMove?</h2>
     <p class="section-text" id="t-why-text">
-        We combine engineering, esports expertise, neuroscience, and system diagnostics.
-        No generic scripts. No \"copy-paste\" configs. Every optimization is handcrafted.
+        We combine engineering, esports expertise, optimization, and personalized coaching.
+        No templates. No copied setups. Everything is built individually.
     </p>
 </section>
 
 <footer>© 2025 UltimateMove.eu – All Rights Reserved</footer>
 
 <script>
-/* LANGUAGE HANDLING */
-const userLang = navigator.language || navigator.userLanguage;
-const isPL = userLang.toLowerCase().startsWith("pl");
+/* LANGUAGE DETECTION */
+const userLang = navigator.language.toLowerCase();
+const isPL = userLang.startsWith("pl");
 
 if(isPL){
     document.getElementById("t-title").innerText = "UltimateMove.eu";
-    document.getElementById("t-subtitle").innerText =
-      "Elitarny Coaching • Cyberpunkowa Optymalizacja PC • Customowe Maszyny dla Graczy";
+    document.getElementById("t-subtitle").innerHTML =
+      "Coaching: Gaming • Lifestyle • Fitness • Mental<br>Optymalizacja PC • Customowe komputery / PC";
 
     document.getElementById("t-button").innerText = "WEJDŹ NA STRONĘ";
 
-    document.getElementById("t-what-title").innerText = "Co Robimy";
+    document.getElementById("t-what-title").innerText = "Co robimy";
     document.getElementById("t-what-text").innerText =
-      "UltimateMove oferuje coaching na światowym poziomie, optymalizację systemu, customowy sprzęt oraz prowadzenie performance. Wszystko jest tworzone indywidualnie.";
+      "UltimateMove oferuje profesjonalny coaching, optymalizację PC i budowę komputerów na zamówienie.";
 
-    document.getElementById("t-card1-title").innerText = "🎯 Pro Coaching";
-    document.getElementById("t-card1-text").innerText = "FPS, MOBA, gry rywalizacyjne – analiza, plany poprawy, mistrzostwo.";
+    document.getElementById("t-card1-title").innerText = "🎯 Coaching";
+    document.getElementById("t-card1-text").innerText =
+      "Gaming • Lifestyle • Fitness • Mental — skuteczne i indywidualne podejście.";
 
-    document.getElementById("t-card2-title").innerText = "⚡ Optymalizacja Systemu";
-    document.getElementById("t-card2-text").innerText = "Boost FPS, redukcja input lag, dopracowanie BIOS i systemu.";
+    document.getElementById("t-card2-title").innerText = "⚡ Optymalizacja PC";
+    document.getElementById("t-card2-text").innerText =
+      "Poprawa FPS, redukcja input lag, dopracowanie BIOS i systemu.";
 
-    document.getElementById("t-card3-title").innerText = "🖥 Customowe PC";
-    document.getElementById("t-card3-text").innerText = "Maszyny projektowane od zera pod wydajność turniejową.";
-
-    document.getElementById("t-card4-title").innerText = "🧠 Mental & Lifestyle";
-    document.getElementById("t-card4-text").innerText = "Koncentracja, regeneracja, rutyny – kompletna budowa zawodnika.";
+    document.getElementById("t-card3-title").innerText = "🖥 Customowe komputery / PC";
+    document.getElementById("t-card3-text").innerText =
+      "Wysokowydajne komputery stworzone specjalnie pod Twoje potrzeby.";
 
     document.getElementById("t-why-title").innerText = "Dlaczego UltimateMove?";
     document.getElementById("t-why-text").innerText =
-      "Łączymy inżynierię, esport, neuro-naukę i diagnostykę systemową. Zero szablonów. Zero kopiowania. Każda optymalizacja jest ręcznie dopracowana.";
+      "Łączymy inżynierię, esport, optymalizację i coaching. Zero szablonów. Wszystko tworzone indywidualnie.";
 }
 
-/* SCROLL FADE-UP */
+/* SCROLL REVEAL */
 const sections = document.querySelectorAll("section");
-const reveal = () => {
+function reveal(){
     sections.forEach(sec=>{
         const rect = sec.getBoundingClientRect();
         if(rect.top < window.innerHeight - 120){
             sec.classList.add("visible");
         }
     });
-};
+}
 window.addEventListener("scroll", reveal);
 reveal();
 </script>
