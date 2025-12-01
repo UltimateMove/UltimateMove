@@ -1,313 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>UltimateMove.eu – Landing Page</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
-
 <style>
-/* GLOBAL */
-*{margin:0;padding:0;box-sizing:border-box;}
-body,html{
-    height:100%;
-    font-family:'Montserrat',sans-serif;
-    color:#fff;
-    background:#050505;
-    overflow-x:hidden;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Montserrat',sans-serif;background:#050505;color:#fff;overflow-x:hidden}
+.bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;filter:brightness(0.45) saturate(1.2)}
+.grid-overlay{position:fixed;inset:0;background:
+ linear-gradient(90deg, rgba(255,0,255,0.06) 1px, transparent 1px),
+ linear-gradient(0deg, rgba(0,255,255,0.06) 1px, transparent 1px);
+ background-size:40px 40px;z-index:-2;opacity:0.12;mix-blend-mode:screen}
+#preloader{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#000;z-index:9999}
+.loader-circle{width:64px;height:64px;border:3px solid #00faff;border-radius:50%;box-shadow:0 0 18px #00faff;animation:spin 1.2s linear infinite}
+#loader-text{color:#00faff;margin-top:18px;font-weight:600;font-size:16px}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-/* BACKGROUND VIDEO */
-.bg-video{
-    position:fixed;
-    top:0;left:0;
-    width:100%;height:100%;
-    object-fit:cover;
-    z-index:-3;
-    filter:brightness(0.45) saturate(1.2);
-}
-
-/* GRID OVERLAY */
-.grid-overlay{
-    position:fixed;
-    top:0;left:0;
-    width:100%;height:100%;
-    background:
-      linear-gradient(90deg, rgba(255,0,255,0.08) 1px, transparent 1px),
-      linear-gradient(0deg, rgba(0,255,255,0.08) 1px, transparent 1px);
-    background-size:40px 40px;
-    z-index:-2;
-    opacity:0.12;
-}
-
-/* PRELOADER */
-#preloader{
-    position:fixed;
-    top:0;left:0;width:100%;height:100%;
-    background:#000;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-    animation:fadeOut 0.7s ease 1.5s forwards;
-}
-.loader-circle{
-    width:70px;height:70px;
-    border:3px solid #00faff;
-    border-radius:50%;
-    animation:spin 1.3s linear infinite;
-    box-shadow:0 0 20px #00faff;
-}
-#loader-text{
-    margin-top:20px;
-    font-size:18px;
-    font-weight:600;
-    color:#00faff;
-}
-
-@keyframes spin{to{transform:rotate(360deg);}}
-@keyframes fadeOut{to{opacity:0;visibility:hidden;}}
-
-/* HERO */
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-    opacity:0;
-    animation:fadeIn 1.4s ease forwards 1.6s;
-}
-
-.title{
-    font-size:40px;
-    font-weight:800;
-    margin-bottom:15px;
-}
-
-.subtitle{
-    font-size:20px;
-    max-width:700px;
-    opacity:0.85;
-    margin-bottom:40px;
-}
-
-.btn-main{
-    padding:14px 32px;
-    border:2px solid #00faff;
-    color:#00faff;
-    background:rgba(0,0,0,0.4);
-    border-radius:10px;
-    font-size:20px;
-    font-weight:600;
-    text-decoration:none;
-    transition:0.25s;
-}
-.btn-main:hover{
-    background:#00faff;
-    color:#000;
-}
-
-/* SOCIAL LINKS */
-.socials{
-    margin-top:45px;
-}
-.socials a{
-    margin:0 15px;
-    color:#fff;
-    font-size:20px;
-    text-decoration:none;
-    opacity:0.9;
-}
-.socials a:hover{
-    color:#00faff;
-}
-
-/* SECTIONS */
-section{
-    padding:100px 10vw;
-    opacity:0;
-    transform:translateY(35px);
-    transition:1s ease;
-}
-section.visible{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.section-title{
-    font-size:32px;
-    font-weight:700;
-    margin-bottom:20px;
-}
-
-.section-text{
-    font-size:18px;
-    max-width:900px;
-    line-height:1.6;
-    opacity:0.85;
-}
-
-.card-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-    margin-top:40px;
-}
-
-.card{
-    background:rgba(0,0,0,0.55);
-    padding:25px;
-    border:1px solid rgba(0,255,255,0.3);
-    border-radius:12px;
-    transition:0.3s;
-}
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 0 20px #00faff;
-}
-
-.card h3{
-    font-size:22px;
-    margin-bottom:10px;
-}
-.card p{
-    font-size:15px;
-    opacity:0.8;
-    line-height:1.5;
-}
-
-footer{
-    padding:40px;
-    text-align:center;
-    font-size:14px;
-    opacity:0.6;
-}
+/* Content */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;position:relative;z-index:1;opacity:0;transition:opacity .8s ease}
+.hero.visible{opacity:1}
+.title{font-size:36px;font-weight:800;margin-bottom:12px;text-shadow:0 0 18px rgba(0,170,255,0.12)}
+.subtitle{font-size:18px;max-width:780px;opacity:.92;margin-bottom:26px;line-height:1.3}
+.btn-main{display:inline-block;padding:12px 26px;border-radius:10px;border:2px solid #00faff;color:#00faff;background:rgba(0,0,0,0.35);text-decoration:none;font-weight:600}
+.socials{margin-top:30px}
+.socials a{margin:0 12px;color:#fff;text-decoration:none;opacity:.95}
+.section{padding:80px 8vw;opacity:0;transform:translateY(30px);transition:all .9s cubic-bezier(.2,.9,.2,1)}
+.section.visible{opacity:1;transform:none}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:26px}
+.card{background:rgba(0,0,0,0.55);padding:20px;border-radius:10px;border:1px solid rgba(0,170,255,0.12)}
+footer{padding:32px;text-align:center;opacity:.6}
+@media(max-width:720px){.title{font-size:26px}.subtitle{font-size:16px}}
 </style>
 </head>
-
 <body>
-
-<!-- PRELOADER -->
+<!-- Preloader -->
 <div id="preloader">
-  <div class="loader-circle"></div>
-  <div id="loader-text">POWERING UP...</div>
+  <div style="display:flex;flex-direction:column;align-items:center">
+    <div class="loader-circle"></div>
+    <div id="loader-text">POWERING UP...</div>
+  </div>
 </div>
 
-<!-- BACKGROUND VIDEO -->
-<video class="bg-video" autoplay muted loop playsinline>
-  <source src="media/bg.mp4" type="video/mp4">
+<!-- Background video w/ poster fallback -->
+<video class="bg-video" id="bgVideo" autoplay muted loop playsinline poster="media/poster.jpg">
+  <source src="https://ultimatemove.github.io/UltimateMove/media/bg.mp4" type="video/mp4">
+  <!-- optional alternate format (if you want later): <source src="media/bg.webm" type="video/webm"> -->
 </video>
 
 <div class="grid-overlay"></div>
 
-<!-- HERO -->
-<div class="hero">
+<!-- Hero -->
+<main>
+  <div class="hero" id="hero">
     <h1 class="title" id="t-title">UltimateMove.eu</h1>
-    <p class="subtitle" id="t-subtitle">
-        Coaching: Gaming • Lifestyle • Fitness • Mental<br>
-        Optymalizacja PC • Customowe komputery / PC
+    <p class="subtitle" id="t-sub">
+      Coaching: Gaming • Lifestyle • Fitness • Mental<br>
+      Optymalizacja PC • Customowe komputery / PC
     </p>
-
-    <a href="https://ultimatemove.eu/en/" target="_blank" class="btn-main" id="t-button">
-        ENTER MAIN SITE
-    </a>
+    <a class="btn-main" id="enterBtn" href="https://ultimatemove.eu/en/" target="_blank">ENTER MAIN SITE</a>
 
     <div class="socials">
-        <a href="https://www.instagram.com/ultimatemove.eu/" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@ultimatemove.eu" target="_blank">TikTok</a>
-        <a href="https://www.youtube.com/@UltimateMove-eu" target="_blank">YouTube</a>
-        <a href="https://www.twitch.tv/karzye" target="_blank">Twitch</a>
+      <a href="https://www.instagram.com/ultimatemove.eu/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@ultimatemove.eu" target="_blank">TikTok</a>
+      <a href="https://www.youtube.com/@UltimateMove-eu" target="_blank">YouTube</a>
+      <a href="https://www.twitch.tv/karzye" target="_blank">Twitch</a>
     </div>
-</div>
+  </div>
 
-<!-- SECTION 1 -->
-<section id="sec-what">
-    <h2 class="section-title" id="t-what-title">What We Do</h2>
-    <p class="section-text" id="t-what-text">
-        UltimateMove offers professional coaching, PC optimization, and custom PC building.
-        Every service is tailored individually to provide real results.
-    </p>
-
+  <section class="section" id="sec-what">
+    <h2 class="section-title">What We Do</h2>
+    <p class="section-text">UltimateMove offers professional coaching, PC optimization, and custom PC building. Every service is tailored individually to provide real results.</p>
     <div class="card-grid">
-        <div class="card">
-            <h3 id="t-card1-title">🎯 Coaching</h3>
-            <p id="t-card1-text">Gaming • Lifestyle • Fitness • Mental — structured and result-driven.</p>
-        </div>
-
-        <div class="card">
-            <h3 id="t-card2-title">⚡ PC Optimization</h3>
-            <p id="t-card2-text">FPS boost, input latency reduction, BIOS & OS refinement.</p>
-        </div>
-
-        <div class="card">
-            <h3 id="t-card3-title">🖥 Custom PCs</h3>
-            <p id="t-card3-text">High-performance PCs built specifically for your needs.</p>
-        </div>
+      <div class="card"><h3>🎯 Coaching</h3><p>Gaming • Lifestyle • Fitness • Mental — structured and result-driven.</p></div>
+      <div class="card"><h3>⚡ PC Optimization</h3><p>FPS boost, input latency reduction, BIOS & OS refinement.</p></div>
+      <div class="card"><h3>🖥 Custom PCs</h3><p>High-performance PCs built specifically for your needs.</p></div>
     </div>
-</section>
+  </section>
 
-<!-- SECTION 2 -->
-<section id="sec-why">
-    <h2 class="section-title" id="t-why-title">Why UltimateMove?</h2>
-    <p class="section-text" id="t-why-text">
-        We combine engineering, esports expertise, optimization, and personalized coaching.
-        No templates. No copied setups. Everything is built individually.
-    </p>
-</section>
+  <section class="section" id="sec-why">
+    <h2 class="section-title">Why UltimateMove?</h2>
+    <p class="section-text">We combine engineering, esports expertise, optimization, and personalized coaching. No templates. No copied setups. Everything is built individually.</p>
+  </section>
 
-<footer>© 2025 UltimateMove.eu – All Rights Reserved</footer>
+  <footer>© 2025 UltimateMove.eu – All Rights Reserved</footer>
+</main>
 
 <script>
-/* LANGUAGE DETECTION */
-const userLang = navigator.language.toLowerCase();
-const isPL = userLang.startsWith("pl");
-
+// LANGUAGE (PL/EN)
+const lang = (navigator.language||'en').toLowerCase();
+const isPL = lang.startsWith('pl');
 if(isPL){
-    document.getElementById("t-title").innerText = "UltimateMove.eu";
-    document.getElementById("t-subtitle").innerHTML =
-      "Coaching: Gaming • Lifestyle • Fitness • Mental<br>Optymalizacja PC • Customowe komputery / PC";
-
-    document.getElementById("t-button").innerText = "WEJDŹ NA STRONĘ";
-
-    document.getElementById("t-what-title").innerText = "Co robimy";
-    document.getElementById("t-what-text").innerText =
-      "UltimateMove oferuje profesjonalny coaching, optymalizację PC i budowę komputerów na zamówienie.";
-
-    document.getElementById("t-card1-title").innerText = "🎯 Coaching";
-    document.getElementById("t-card1-text").innerText =
-      "Gaming • Lifestyle • Fitness • Mental — skuteczne i indywidualne podejście.";
-
-    document.getElementById("t-card2-title").innerText = "⚡ Optymalizacja PC";
-    document.getElementById("t-card2-text").innerText =
-      "Poprawa FPS, redukcja input lag, dopracowanie BIOS i systemu.";
-
-    document.getElementById("t-card3-title").innerText = "🖥 Customowe komputery / PC";
-    document.getElementById("t-card3-text").innerText =
-      "Wysokowydajne komputery stworzone specjalnie pod Twoje potrzeby.";
-
-    document.getElementById("t-why-title").innerText = "Dlaczego UltimateMove?";
-    document.getElementById("t-why-text").innerText =
-      "Łączymy inżynierię, esport, optymalizację i coaching. Zero szablonów. Wszystko tworzone indywidualnie.";
+  document.getElementById('t-title').innerText='UltimateMove.eu';
+  document.getElementById('t-sub').innerHTML='Coaching: Gaming • Lifestyle • Fitness • Mental<br>Optymalizacja PC • Customowe komputery / PC';
+  document.getElementById('enterBtn').innerText='WEJDŹ NA STRONĘ';
+  document.querySelector('.section-title').innerText='Co robimy';
 }
 
-/* SCROLL REVEAL */
-const sections = document.querySelectorAll("section");
-function reveal(){
-    sections.forEach(sec=>{
-        const rect = sec.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 120){
-            sec.classList.add("visible");
-        }
-    });
+// PRELOADER: ukryj po onload lub max 4s
+function hidePreloader(){
+  const pre = document.getElementById('preloader');
+  if(!pre) return;
+  pre.style.transition='opacity .5s ease';
+  pre.style.opacity='0';
+  setTimeout(()=>{ pre.style.display='none'; document.getElementById('hero').classList.add('visible'); }, 600);
 }
-window.addEventListener("scroll", reveal);
+window.addEventListener('load', ()=>{ // load fires after all assets or after timeout
+  // if video can play, hide preloader
+  const vid = document.getElementById('bgVideo');
+  if(vid && (vid.readyState >= 3 || vid.currentTime > 0)){
+    hidePreloader();
+  } else {
+    // try to hide when video canplay, or fallback after 3.5s
+    let called=false;
+    vid && vid.addEventListener('canplay', ()=>{ if(!called){ called=true; hidePreloader(); } }, {once:true});
+    setTimeout(()=>{ if(!called){ hidePreloader(); } }, 3500);
+  }
+});
+
+// Reveal sections on scroll
+const secs=document.querySelectorAll('.section');
+function reveal(){ secs.forEach(s=>{ const r=s.getBoundingClientRect(); if(r.top < (window.innerHeight-120)) s.classList.add('visible'); }); }
+window.addEventListener('scroll', reveal);
 reveal();
 </script>
-
 </body>
 </html>
