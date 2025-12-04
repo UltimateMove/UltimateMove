@@ -11,12 +11,6 @@ Aim of the company is to help players get in their respectful level and progress
 
 ## 🧩 Features
 
-### 🔥 Cyberpunk / Neon UI
-- Neon light effects
-- Subtle glitch animations
-- Grid overlay & parallax background
-- Animated cards and sections
-
 ### 🌍 Automatic Language Detection (PL / EN)
 - English by default  
 - Polish enabled automatically if the user's browser is set to **pl / pl-PL**  
@@ -45,5 +39,3 @@ Includes links to:
 - YouTube  
 - Twitch  
 - Main website (UltimateMove.eu)
-
-
