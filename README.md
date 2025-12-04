@@ -1,7 +1,7 @@
-# UltimateMove.eu – Cyberpunk style Landing Page
+# UltimateMove.eu – Landing Page
 
-This repository contains the official cyberpunk-style landing page for **UltimateMove.eu**.  
-The page is designed as a fast, minimal, high-performance one-page intro with a neon/cyberpunk visual theme and animated UI.
+This repository contains the unofficial landing page for **UltimateMove.eu**.  
+The page is designed as a fast, minimal, high-performance one-page intro with a neon visual theme and animated UI.
 
 It serves as a branded entrance page for the UltimateMove ecosystem, redirecting users to the main website and social media channels.
 
