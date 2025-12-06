@@ -16,15 +16,7 @@ Aim of the company is to help players get in their respectful level and progress
 - Polish enabled automatically if the user's browser is set to **pl / pl-PL**  
 - All text content dynamically replaced via JavaScript
 
-### 🎬 Fullscreen Video Background
-- Video located at: **`/media/bg.mp4`**
-- Autoplay, muted, looped
-- Optimized for fast loading and smooth playback
-
-### ⚡ Preloader (EN)
-- Minimal cyberpunk preloader
-- Fixed English text: **“POWERING UP…”**
-- Smooth fade-out animation
+### ⚡ Preloader (EN/PL)
 
 ### 🎨 Smooth Animations
 - Fade-in hero section
